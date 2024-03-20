@@ -6,13 +6,16 @@
         xmlns:local="clr-namespace:ElectronicMagazine.Menu"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainMenu" Height="450" Width="800" ResizeMode="NoResize">
+        Title="MainMenu" Height="450" Width="450" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Выбрать" HorizontalAlignment="Left" Margin="332,259,0,0" VerticalAlignment="Top" Height="44" Width="122" Click="Button_Click"/>
-        <Label Content="Класс" HorizontalAlignment="Left" Margin="315,69,0,0" Grid.Row="1" VerticalAlignment="Top" Width="81" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="ComboBoxClass" HorizontalAlignment="Left" Margin="315,105,0,0" Grid.Row="1" VerticalAlignment="Top" Width="149" Height="37" Grid.ColumnSpan="2" SelectionChanged="ComboBoxClass_SelectionChanged"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/fon.jpg"/>
+        </Grid.Background>
+        <Button Content="Выбрать" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="44" Width="122" Click="Button_Click"/>
+        <Label Content="Класс" HorizontalAlignment="Left" Margin="150,95,0,0" VerticalAlignment="Top" Width="82"/>
+        <ComboBox x:Name="ComboBoxClass" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Width="150" Height="37" SelectionChanged="ComboBoxClass_SelectionChanged"/>
+        <Label Content="Вы вошли как: " HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label x:Name="LableFirstName" Content="Label" HorizontalAlignment="Left" Margin="136,32,0,0" VerticalAlignment="Top"/>
         <!--!-->
-        <Label Content="Предмет" HorizontalAlignment="Left" Margin="318,170,0,0" VerticalAlignment="Top" Width="82"/>
-        <ComboBox x:Name="ComboBoxDiscipline" HorizontalAlignment="Left" Margin="318,206,0,0" VerticalAlignment="Top" Width="150" Height="37" SelectionChanged="ComboBoxClass_SelectionChanged"/>
     </Grid>
 </Window>

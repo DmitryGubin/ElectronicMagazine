@@ -23,6 +23,9 @@ namespace ElectronicMagazine.Auth
         public Registration()
         {
             InitializeComponent();
+
+            foreach (var discipline in entities.Discipline)
+                ComboBoxDiscipline.Items.Add(discipline);
         }
 
         private void LogInButton_Click(object sender, RoutedEventArgs e)
@@ -50,6 +53,8 @@ namespace ElectronicMagazine.Auth
                     user.id_Role = 2; // по умолчанию пользователь
                     teachers.Имя_ = TextName.Text;
                     teachers.Фамилия = TextSecondName.Text;
+                    teachers.Discipline = ComboBoxDiscipline.SelectedItem as Discipline;
+                    teachers.id_User = user.Id;
                     entities.SaveChanges();
                     MessageBox.Show("Пользователь успешно зарегистрирован!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
 

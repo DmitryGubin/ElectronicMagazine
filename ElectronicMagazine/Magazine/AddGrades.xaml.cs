@@ -23,12 +23,20 @@ namespace ElectronicMagazine.Magazine
     public partial class AddGrades : Page
     {
         Students students;
-        private Grades grades = new Grades();
         Discipline discipline;
+        private Grades grades = new Grades();
 
-        public AddGrades(Students student, Discipline disciplines)
+        public AddGrades(Students student, Discipline disciplines, Grades grades_)
         {
             InitializeComponent();
+            if (grades_ != null)
+            {
+                grades = grades_;
+            }
+            else 
+            {
+                grades = new Grades();
+            }
             students = student;
             discipline = disciplines;
             DataContext = grades;
@@ -39,28 +47,45 @@ namespace ElectronicMagazine.Magazine
 
             DateTime date = DateTime.Now;
 
-            var newGrade = new Grades()
-            {
-                Id_Студента = students.Id,
-                Id_Дисциплины = discipline.Id,
-                Оценка = grades.Оценка,
-                Дата_оценки = date,
-            };
-
-
-
-            if (grades.Id == 0)
-                JournalEntities.GetContext().Grades.Add(newGrade);
-
             try
             {
-                JournalEntities.GetContext().SaveChanges();
-                MessageBox.Show("Данные сохранены");
+                int grade_;
+                if (!int.TryParse(grades.Оценка.ToString(), out grade_) || int.Parse(TextBoxGrade.Text) > 5 || int.Parse(TextBoxGrade.Text) < 1)
+                    MessageBox.Show("Неверный формат данных", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                else
+                {
+                    if (grades.Id == 0)
+                    {
+                        var newGrade = new Grades()
+                        {
+                            Id_Студента = students.Id,
+                            Id_Дисциплины = discipline.Id,
+                            Оценка = grades.Оценка,
+                            Дата_оценки = date,
+                        };
+
+                        JournalEntities.GetContext().Grades.Add(newGrade);
+
+                    }
+                    try
+                    {
+                        JournalEntities.GetContext().SaveChanges();
+                        MessageBox.Show("Данные сохранены", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Manager.MainFrame.GoBack();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
             }
-            catch (Exception ex)
+            catch 
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Неверный формат данных", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+
 
         }
 

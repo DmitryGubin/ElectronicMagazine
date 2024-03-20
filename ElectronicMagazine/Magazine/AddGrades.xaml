@@ -7,10 +7,66 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddGrades">
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="10" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60*"></RowDefinition>
             <RowDefinition Height="60*"></RowDefinition>
             <RowDefinition Height="60*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -21,14 +77,9 @@
 
         <TextBlock Text="Оценка" TextAlignment="Center" HorizontalAlignment="Center"
 VerticalAlignment="Center" FontFamily="Tahoma" FontSize="19" Height="50"
-Width="133"></TextBlock >
-        <TextBlock Text="Дата оценки" Grid.Row="1" HorizontalAlignment="Center"
-VerticalAlignment="Center" FontFamily="Tahoma" FontSize="19" Height="50"
-Width="150"></TextBlock>        <TextBox x:Name="TextBoxGrade" Text="{Binding Оценка}" Grid.Column="1" Grid.Row="0" Width="300" Height="45"
-HorizontalAlignment="Left" />        <DatePicker x:Name="TextBoxDatePicker" Text="{Binding Дата_оценки}" Grid.Row="1" Grid.Column="1" Height="45" Width="300"
-HorizontalAlignment="Left"/>        <Button Name="btnSave" Click="btnSave_Click" Content="Сохранить" Width="200"
-Height="35" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right"/>        <Button Name="btnBack" Click="btnBack_Click" Content="Назад" Height="35" Width="150"
-Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" />
+Width="133"></TextBlock >        <TextBox x:Name="TextBoxGrade" Text="{Binding Оценка}" Grid.Column="1" Grid.Row="0" Width="200" Height="45"
+HorizontalAlignment="Center" TextAlignment="Center"  FontSize="16" TextWrapping="Wrap" FontStyle="Oblique" />        <Button Style="{DynamicResource ButtonStyle1}" Name="btnSave" Click="btnSave_Click" Content="Сохранить" Width="200"
+Height="35" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     </Grid>
 </Page>

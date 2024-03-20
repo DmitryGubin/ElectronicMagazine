@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b9906e3a1e034bff8e35f816c561df67" Name="Diagram1" ZoomLevel="85">
-        <EntityTypeShape EntityType="JournalModel.Classes" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Discipline" Width="1.5" PointX="0.5" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Grades" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Role" Width="1.5" PointX="5.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Students" Width="1.5" PointX="9.625" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Teachers" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Users" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+      <Diagram DiagramId="447b6478d277424ea4844470a046858b" Name="Diagram1">
+        <EntityTypeShape EntityType="JournalModel.Classes" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Discipline" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Grades" Width="1.5" PointX="7.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Role" Width="1.5" PointX="1.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Students" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Teachers" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Users" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
         <AssociationConnector Association="JournalModel.FK_Classes_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Grades_ToTable_2" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Students_ToTable" ManuallyRouted="false" />
@@ -20,6 +20,7 @@
         <AssociationConnector Association="JournalModel.FK_Grades_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Grades_ToTable_1" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="JournalModel.FK_Teachers_ToTable_1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

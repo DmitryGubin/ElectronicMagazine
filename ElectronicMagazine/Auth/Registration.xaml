@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicMagazine.Auth"
         mc:Ignorable="d"
-        Title="Registration" Height="570" Width="450">
+        Title="Registration" Height="570" Width="450" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -64,6 +64,9 @@
         </Style>
     </Window.Resources>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/fon.jpg"/>
+        </Grid.Background>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="76,375,0,0" VerticalAlignment="Top" Width="278" Height="33"/>
         <Label Content="Введите пароль" HorizontalAlignment="Left" Margin="76,344,0,0" VerticalAlignment="Top" Width="106"/>
         <Button Style="{DynamicResource ButtonStyleLogIn}" x:Name="LogInButton" Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="76,443,0,0" VerticalAlignment="Top" Height="35" Width="126" Click="LogInButton_Click"/>
@@ -84,7 +87,11 @@
         <TextBox x:Name="TextName" HorizontalAlignment="Left" Margin="78,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278" Height="33"/>
         <Label Content="Фамилия" HorizontalAlignment="Left" Margin="78,146,0,0" VerticalAlignment="Top" Width="90"/>
         <Label Content="Имя" HorizontalAlignment="Left" Margin="78,77,0,0" VerticalAlignment="Top" Width="90"/>
-        <TextBox x:Name="TextSubject"  HorizontalAlignment="Left" Margin="78,246,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278" Height="33"/>
         <Label Content="Предмет" HorizontalAlignment="Left" Margin="78,215,0,0" VerticalAlignment="Top" Width="90"/>
+        <ComboBox x:Name="ComboBoxDiscipline" HorizontalAlignment="Left" Margin="76,246,0,0" VerticalAlignment="Top" Width="278" Height="33">
+            <ComboBox.Background>
+                <ImageBrush ImageSource="/Resources/fon.jpg"/>
+            </ComboBox.Background>
+        </ComboBox>
     </Grid>
 </Window>

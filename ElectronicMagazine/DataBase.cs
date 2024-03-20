@@ -69,6 +69,9 @@ namespace ElectronicMagazine
     {
         public static string loginusers { get; set; }
         public static string lograz { get; set; }
+        public static string SeconName { get; set; }
+        public static string Discipline { get; set; }
+
     }
 
     public static class StudentsProf

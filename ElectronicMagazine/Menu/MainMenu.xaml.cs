@@ -1,7 +1,10 @@
 ﻿using ElectronicMagazine.Magazine;
+using System.IO;
+using System;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media.Imaging;
 
 namespace ElectronicMagazine.Menu
 {
@@ -11,23 +14,26 @@ namespace ElectronicMagazine.Menu
     public partial class MainMenu : Window
     {
         JournalEntities entities = new JournalEntities();
-        public MainMenu()
+        string disciplines;
+        public MainMenu(string discipline)
         {
+            this.disciplines = discipline;
+
             InitializeComponent();
             foreach(var classes in entities.Classes)
                 ComboBoxClass.Items.Add(classes);
-            foreach (var discipline in entities.Discipline)
-                ComboBoxDiscipline.Items.Add(discipline);
+
+            LableFirstName.Content = Profilb.lograz;
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = ComboBoxClass.SelectedItem as Classes;
-            var selctedItemDiscipline = ComboBoxDiscipline.SelectedItem as Discipline;
 
-            TitleDiscipline.Name = selctedItemDiscipline.Дисциплина;
+            TitleDiscipline.Name = disciplines;
 
-            var window = new Background(int.Parse(selectedItem.Класс.ToString()), selctedItemDiscipline.Дисциплина);
+            var window = new Background(int.Parse(selectedItem.Класс.ToString()), disciplines);
             
             window.Show();
             this.Close();

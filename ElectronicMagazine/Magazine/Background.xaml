@@ -6,19 +6,28 @@
         xmlns:local="clr-namespace:ElectronicMagazine.Magazine"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Background" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Background" Height="500" Width="800" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/fon.jpg"/>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Электронный журнал" FontSize="30" HorizontalAlignment="Center"
 VerticalAlignment="Top" FontFamily="Tahoma" Margin="0,7,0,0"></TextBlock>
 
         <Frame NavigationUIVisibility='Hidden' Grid.Row="1" Name="MainFrame"></Frame>
-        <Button Content="Главная" HorizontalAlignment="Left" Margin="10,5,0,0" Grid.Row="2" VerticalAlignment="Top" Click="Button_Back"/>
+        <Button Content="Главная" HorizontalAlignment="Left" Margin="10,329,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Back" Width="50" Height="50" Grid.RowSpan="2" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image Source="/Resources/home.png" Stretch="Fill" Height="50" Width="50" />
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
         <Button Content="Назад" HorizontalAlignment="Left" Margin="747,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="30" Width="43"
                 BorderBrush="{x:Null}" Background="{x:Null}">
             <Button.ContentTemplate >

@@ -20,8 +20,10 @@ namespace ElectronicMagazine.Magazine
     /// </summary>
     public partial class Background : Window
     {
+        string dis;
         public Background(int group, string discipline)
         {
+            this.dis = discipline;
             InitializeComponent();
 
             Manager.MainFrame = MainFrame;
@@ -34,7 +36,7 @@ namespace ElectronicMagazine.Magazine
 
         private void Button_Back(object sender, RoutedEventArgs e)
         {
-            var window = new MainMenu();
+            var window = new MainMenu(dis);
 
             window.Show();
             this.Close();

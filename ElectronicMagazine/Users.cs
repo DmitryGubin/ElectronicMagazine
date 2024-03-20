@@ -14,6 +14,11 @@ namespace ElectronicMagazine
     
     public partial class Users
     {
+        public Users()
+        {
+            this.Teachers = new HashSet<Teachers>();
+        }
+    
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
@@ -21,5 +26,6 @@ namespace ElectronicMagazine
         public string Name { get; set; }
     
         public virtual Role Role { get; set; }
+        public virtual ICollection<Teachers> Teachers { get; set; }
     }
 }

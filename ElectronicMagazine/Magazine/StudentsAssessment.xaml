@@ -6,28 +6,48 @@
       xmlns:local="clr-namespace:ElectronicMagazine.Magazine"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StudentsAssessment">
+      Title="StudentsAssessment" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="377*"></RowDefinition>
-            <RowDefinition Height="73*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="500"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0"  Grid.Column="1" SelectionChanged="dGrid_SelectionChanged">
+        <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0"  Grid.Column="1" Margin="0,0,0,29">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Оценка" Binding="{Binding Оценка}"
 Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Header="Дата оценки" Binding="{Binding Дата_оценки}"
-Width="100"></DataGridTextColumn>
+Width="*"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Width="80" Height="40" Content="Редактировать"
-Name="BtnEdit" Click="BtnEdit_Click"></Button>
+Name="BtnEdit" Click="BtnEdit_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                                <Button.ContentTemplate >
+                                    <DataTemplate >
+                                        <Image Width="30" Height="30"  Source="icon/edit.png" Stretch="Fill" />
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="80" Height="40" Content="Удалить"
+Name="btnDel" Click="btnDel_Click" BorderBrush="{x:Null}" Background="{x:Null}">
+                                <Button.ContentTemplate>
+                                    <DataTemplate >
+                                        <Image Width="35" Height="35"  Source="icon/delete.png" Stretch="Fill" />
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -44,15 +64,24 @@ Name="BtnEdit" Click="BtnEdit_Click"></Button>
         <Label Content="Класс:" HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top"/>
 
 
-        <Button Content="Добавить оценку" Grid.Column="2"  Grid.Row="1" HorizontalAlignment="Left" Name="btnAdd"
-Click="btnAdd_Click" Width="130" Height="40" VerticalAlignment="Center"
-Background="#FFE1E4FF"></Button>
-        <Button Content="Удалить оценку" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" Name="btnDel"
-Click="btnDel_Click" Width="130" Height="40" VerticalAlignment="Center"
-Background="#FFE1E4FF"></Button>
-        <Button Content="Назад" Grid.Row="1" HorizontalAlignment="Left" x:Name="btnBack"
-            Click="btnBack_Click" Width="130" Height="40" VerticalAlignment="Center"
-            Background="#FFE1E4FF"/>
+        <Button Content="Добавить оценку" Grid.Column="1" HorizontalAlignment="Left" Name="btnAdd"
+Click="btnAdd_Click" Height="64"
+        Width="68" VerticalAlignment="Top"
+Background="{x:Null}" BorderBrush="{x:Null}" Margin="422,10,0,0" Grid.Row="1">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image  Source="icon/add.png" Stretch="Fill" />
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+        <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
+            Click="btnBack_Click" Height="64"
+        Width="68" VerticalAlignment="Top"
+            Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,10,0,0" Grid.Row="1">            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image  Source="icon/back.png" Stretch="Fill" />
+                </DataTemplate>
+            </Button.ContentTemplate>        </Button>
 
     </Grid>
 </Page>

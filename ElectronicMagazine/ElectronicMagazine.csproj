@@ -85,9 +85,6 @@
     <Compile Include="Magazine\Background.xaml.cs">
       <DependentUpon>Background.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Magazine\EditGrade.xaml.cs">
-      <DependentUpon>EditGrade.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Magazine\JournalPage.xaml.cs">
       <DependentUpon>JournalPage.xaml</DependentUpon>
     </Compile>
@@ -145,10 +142,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Magazine\Background.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Magazine\EditGrade.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +211,11 @@
     <None Include="Resources\back.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\home.png" />
+    <Resource Include="Magazine\icon\delete.png" />
+    <Resource Include="Magazine\icon\edit.png" />
+    <Resource Include="Magazine\icon\add.png" />
+    <Resource Include="Magazine\icon\back.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -228,6 +226,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\fon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
