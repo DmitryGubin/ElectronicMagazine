@@ -14,20 +14,13 @@ namespace ElectronicMagazine
     
     public partial class Teachers
     {
-        public Teachers()
-        {
-            this.Grades = new HashSet<Grades>();
-        }
-    
         public int Id { get; set; }
         public string Имя_ { get; set; }
         public string Фамилия { get; set; }
         public Nullable<int> Id_Дисциплины { get; set; }
-        public string PhotoPath_ { get; set; }
         public Nullable<int> id_User { get; set; }
     
         public virtual Discipline Discipline { get; set; }
-        public virtual ICollection<Grades> Grades { get; set; }
         public virtual Users Users { get; set; }
     }
 }

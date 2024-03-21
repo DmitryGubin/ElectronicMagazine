@@ -16,6 +16,14 @@
         <ComboBox x:Name="ComboBoxClass" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Width="150" Height="37" SelectionChanged="ComboBoxClass_SelectionChanged"/>
         <Label Content="Вы вошли как: " HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Width="94"/>
         <Label x:Name="LableFirstName" Content="Label" HorizontalAlignment="Left" Margin="136,32,0,0" VerticalAlignment="Top"/>
+        <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
+    Click="btnBack_Click" Height="64"
+Width="68" VerticalAlignment="Top"
+    Background="{x:Null}" BorderBrush="{x:Null}" Margin="16,360,0,0">            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image  Source="/Magazine/icon/back.png" Stretch="Fill" />
+                </DataTemplate>
+            </Button.ContentTemplate>        </Button>
         <!--!-->
     </Grid>
 </Window>

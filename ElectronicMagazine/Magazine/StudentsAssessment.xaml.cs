@@ -1,22 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
 using System.IO;
-using System.Collections;
-using System.Diagnostics;
+using OfficeOpenXml;
+using System.Collections.Generic;
 
 namespace ElectronicMagazine.Magazine
 {
@@ -129,36 +118,36 @@ namespace ElectronicMagazine.Magazine
         {
             var soft_remove = dGrid.SelectedItems.Cast<Grades>().ToList();
 
-            
-                var context = JournalEntities.GetContext();
 
-                foreach (var grade in soft_remove)
+            var context = JournalEntities.GetContext();
+
+            foreach (var grade in soft_remove)
+            {
+                var gradeToRemove = context.Grades.Find(grade.Id);
+                if (gradeToRemove != null)
                 {
-                    var gradeToRemove = context.Grades.Find(grade.Id);
-                    if (gradeToRemove != null)
-                    {
-                        context.Grades.Remove(gradeToRemove);
-                        context.SaveChanges();
-                        dGrid.ItemsSource = JournalEntities.GetContext().Grades.ToList();
-                        ShowStudentGrades(dis);
-                    }
-
+                    context.Grades.Remove(gradeToRemove);
+                    context.SaveChanges();
+                    dGrid.ItemsSource = JournalEntities.GetContext().Grades.ToList();
+                    ShowStudentGrades(dis);
                 }
 
-                Manager.MainFrame.Navigate(new AddGrades(student, dis, (sender as Button).DataContext as Grades));
-                dGrid.Items.Refresh();
-            
+            }
+
+            Manager.MainFrame.Navigate(new AddGrades(student, dis, (sender as Button).DataContext as Grades));
+            dGrid.Items.Refresh();
+
         }
 
-            private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
             {
-                if (Visibility == Visibility.Visible)
-                {
-                    this.Loaded += (s, q) => ShowStudentGrades(dis);
-                    dGrid.ItemsSource = JournalEntities.GetContext().Grades.ToList();
-                }
+                this.Loaded += (s, q) => ShowStudentGrades(dis);
+                dGrid.ItemsSource = JournalEntities.GetContext().Grades.ToList();
             }
         }
     }
+}
 
 

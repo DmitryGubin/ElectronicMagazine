@@ -16,7 +16,6 @@ namespace ElectronicMagazine
     {
         public Classes()
         {
-            this.Grades = new HashSet<Grades>();
             this.Students = new HashSet<Students>();
         }
     
@@ -26,7 +25,6 @@ namespace ElectronicMagazine
         public Nullable<int> Id_Дисциплины { get; set; }
     
         public virtual Discipline Discipline { get; set; }
-        public virtual ICollection<Grades> Grades { get; set; }
         public virtual ICollection<Students> Students { get; set; }
     }
 }

@@ -78,8 +78,14 @@
         <TextBlock Text="Оценка" TextAlignment="Center" HorizontalAlignment="Center"
 VerticalAlignment="Center" FontFamily="Tahoma" FontSize="19" Height="50"
 Width="133"></TextBlock >        <TextBox x:Name="TextBoxGrade" Text="{Binding Оценка}" Grid.Column="1" Grid.Row="0" Width="200" Height="45"
-HorizontalAlignment="Center" TextAlignment="Center"  FontSize="16" TextWrapping="Wrap" FontStyle="Oblique" />        <Button Style="{DynamicResource ButtonStyle1}" Name="btnSave" Click="btnSave_Click" Content="Сохранить" Width="200"
-Height="35" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+HorizontalAlignment="Center" TextAlignment="Center"  FontSize="16" TextWrapping="Wrap" FontStyle="Oblique" />        <Button Style="{DynamicResource ButtonStyle1}" Name="btnSave" Click="btnSave_Click" Content="Сохранить" Height="52"
+Width="60" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image Width="40" Height="40"  Source="/Magazine/icon/disk.png" Stretch="Fill"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
 
     </Grid>
 </Page>

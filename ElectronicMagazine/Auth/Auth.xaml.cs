@@ -1,4 +1,5 @@
-﻿using ElectronicMagazine.Menu;
+﻿using ElectronicMagazine.AdminPanel;
+using ElectronicMagazine.Menu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,35 +37,41 @@ namespace ElectronicMagazine.Auth
             Teachers teachers = new Teachers();
             Discipline disciplines = new Discipline();
             user = entities.Users.Where(p => p.Login == login && p.Password == password).FirstOrDefault();
-            if (user != null && user.id_Role == 1)
-            {
-                MessageBox.Show("Вы вошли как " + user.Login, "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                var window1 = new Window1();
-                window1.Show();
-                this.Close();
-            }
-            else if (user != null)
-            {
-                var teacher = entities.Teachers.FirstOrDefault(t => t.id_User == user.Id);
-                if (teacher != null)
-                {
-                    var discipline = entities.Discipline.FirstOrDefault(d => d.Id == teacher.Id_Дисциплины);
-                    if (discipline != null)
-                    {
-                        Profilb.lograz = user.Name;
-                        var disciplineText = discipline.Дисциплина;
-
-                        MessageBox.Show("Вы вошли как " + user.Login, "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        var window1 = new MainMenu(disciplineText);
-
-                        window1.Show();
-                        this.Close();
-                    }
-                }
-            }
+            if (LoginBox.Text == "" || PasswordBox.Password == "")
+                MessageBox.Show("Введите логин и пароль", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             else
             {
-                MessageBox.Show("Вы ввели неверные логин или пароль", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (user != null && user.id_Role == 1)
+                {
+                    MessageBox.Show("Вы вошли как " + user.Login, "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    var window1 = new BackgroundPanel();
+                    window1.Show();
+                    this.Close();
+                }
+                else if (user != null)
+                {
+                    var teacher = entities.Teachers.FirstOrDefault(t => t.id_User == user.Id);
+                    if (teacher != null)
+                    {
+                        var discipline = entities.Discipline.FirstOrDefault(d => d.Id == teacher.Id_Дисциплины);
+                        if (discipline != null)
+                        {
+                            Profilb.lograz = user.Name;
+                            var disciplineText = discipline.Дисциплина;
+
+                            MessageBox.Show("Вы вошли как " + user.Login, "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            var window1 = new MainMenu(disciplineText);
+
+                            window1.Show();
+                            this.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    PasswordBox.Password = "";
+                    MessageBox.Show("Вы ввели неверные логин или пароль", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

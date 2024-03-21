@@ -1,0 +1,72 @@
+﻿<Page x:Class="ElectronicMagazine.AdminPanel.PageUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ElectronicMagazine.AdminPanel"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageUser" IsVisibleChanged="Page_IsVisivleChange">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0" Margin="0,0,0,5" SelectionChanged="dGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}"
+Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"
+Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"
+Width="100"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="80" Height="40" Content="Редактировать"
+Name="BtnEdit" Click="BtnEdit_Click" Background="{x:Null}" BorderBrush="{x:Null}">
+                                <Button.ContentTemplate >
+                                    <DataTemplate >
+                                        <Image Width="30" Height="30"  Source="/Magazine/icon/edit.png" Stretch="Fill" />
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="80" Height="40" Content="Удалить"
+Name="btnDel" Click="btnDel_Click" BorderBrush="{x:Null}" Background="{x:Null}">
+                                <Button.ContentTemplate>
+                                    <DataTemplate >
+                                        <Image Width="35" Height="35"  Source="/Magazine/icon/delete.png" Stretch="Fill" />
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добваить ученика" HorizontalAlignment="Left" Margin="701,0,0,0" VerticalAlignment="Top" Click="ClickAdd" Height="64"
+        Width="68" Background="{x:Null}" BorderBrush="{x:Null}" Grid.Row="1">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image  Source="/Magazine/icon/add.png" Stretch="Fill" />
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
+    Click="btnBack_Click" Height="64"
+Width="68" VerticalAlignment="Top"
+    Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,0,0,0" Grid.Row="1">            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image  Source="/Magazine/icon/back.png" Stretch="Fill" />
+                </DataTemplate>
+            </Button.ContentTemplate>        </Button>
+    </Grid>
+</Page>

@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Imaging;
+using ElectronicMagazine.AdminPanel;
 
 namespace ElectronicMagazine.Menu
 {
@@ -42,6 +43,13 @@ namespace ElectronicMagazine.Menu
         private void ComboBoxClass_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            var window1 = new Auth.Auth();
+            window1.Show();
+            this.Close();
         }
     }
 }
