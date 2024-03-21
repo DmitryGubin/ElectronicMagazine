@@ -32,12 +32,17 @@ namespace ElectronicMagazine.Menu
         {
             var selectedItem = ComboBoxClass.SelectedItem as Classes;
 
-            TitleDiscipline.Name = disciplines;
+            if (selectedItem != null)
+            {
+                TitleDiscipline.Name = disciplines;
 
-            var window = new Background(int.Parse(selectedItem.Класс.ToString()), disciplines);
-            
-            window.Show();
-            this.Close();
+                var window = new Background(int.Parse(selectedItem.Класс.ToString()), disciplines);
+
+                window.Show();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Выберите класс", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void ComboBoxClass_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

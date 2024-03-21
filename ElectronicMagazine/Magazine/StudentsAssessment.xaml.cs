@@ -27,9 +27,6 @@ namespace ElectronicMagazine.Magazine
             apdute();
 
             ImagePhoto(student);
-
-
-
         }
 
         public void ImagePhoto(Students student)

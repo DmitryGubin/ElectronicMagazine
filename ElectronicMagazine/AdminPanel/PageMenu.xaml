@@ -15,7 +15,7 @@
             <RowDefinition Height="50*"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Content="Студенты" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="115" Click="edtStud"/>
+        <Button Content="Ученики" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="115" Click="edtStud"/>
         <Button Content="Учителя" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="1" Height="46" Width="115" Click="editTeacher"/>
         <Button Content="Пользователи" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="2" Height="46" Width="115" Click="editUser"/>
     </Grid>
