@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9d494cc2c8704f5f9759708d07d07438" Name="Diagram1">
-        <EntityTypeShape EntityType="JournalModel.Classes" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Discipline" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Grades" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Role" Width="1.5" PointX="1.5" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Students" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Teachers" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Users" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Classes" Width="1.5" PointX="4.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Discipline" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Grades" Width="1.5" PointX="9.625" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Role" Width="1.5" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Students" Width="1.5" PointX="7" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Teachers" Width="1.5" PointX="5.375" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="JournalModel.Users" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="JournalModel.FK_Classes_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Students_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="JournalModel.FK_Grades_ToTable_3" ManuallyRouted="false" />

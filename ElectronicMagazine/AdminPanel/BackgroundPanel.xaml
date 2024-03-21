@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicMagazine.AdminPanel"
         mc:Ignorable="d"
-        Title="BackgroundPanel" Height="500" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Меню Администратора" Height="500" Width="800" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/fon.jpg"/>
     </Window.Background>

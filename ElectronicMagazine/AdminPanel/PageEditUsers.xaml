@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ElectronicMagazine.AdminPanel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageEditUsers">
+      Title="Редактирование пользователей">
 
     <Grid>
         <Grid.RowDefinitions>

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ElectronicMagazine.AdminPanel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PanelTeacher" IsVisibleChanged="Page_IsVisibleChanged">
+      Title="Список учителей" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>

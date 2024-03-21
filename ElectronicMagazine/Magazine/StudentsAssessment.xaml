@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ElectronicMagazine.Magazine"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StudentsAssessment" IsVisibleChanged="Page_IsVisibleChanged">
+      Title="Оценки ученика" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>

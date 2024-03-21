@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ElectronicMagazine.Magazine"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Background" Height="500" Width="800" ResizeMode="NoResize">
+        Title="Журнал" Height="500" Width="800" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/fon.jpg"/>
     </Window.Background>

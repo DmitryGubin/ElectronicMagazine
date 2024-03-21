@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ElectronicMagazine.Menu"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainMenu" Height="450" Width="450" ResizeMode="NoResize">
+        Title="Меню" Height="450" Width="450" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/fon.jpg"/>

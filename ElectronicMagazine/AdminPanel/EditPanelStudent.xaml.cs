@@ -66,10 +66,8 @@ namespace ElectronicMagazine.AdminPanel
             try
             {
                 Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-/*                dlg.Filter = "Image files (.png;.jpg;.jpeg)|.png;.jpg;.jpeg|All files (.)|.";*/
                 if (dlg.ShowDialog() == true && !string.IsNullOrWhiteSpace(dlg.FileName))
                     TextPhoto.Text = dlg.FileName.ToString();
-                // textFotoPath.Focus();
                 students.PhotoPath = dlg.FileName;
             }
             catch 

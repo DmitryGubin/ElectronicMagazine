@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ElectronicMagazine.AdminPanel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageMenu">
+      Title="Меню Администратора">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,6 +18,5 @@
         <Button Content="Студенты" HorizontalAlignment="Center" VerticalAlignment="Center" Height="46" Width="115" Click="edtStud"/>
         <Button Content="Учителя" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="1" Height="46" Width="115" Click="editTeacher"/>
         <Button Content="Пользователи" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="2" Height="46" Width="115" Click="editUser"/>
-        <Button Content="Роли" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="3" Height="46" Width="115" Click="editRole"/>
     </Grid>
 </Page>

@@ -6,7 +6,7 @@ namespace ElectronicMagazine
     {
         public override string ToString()
         {
-            return Имя + " " + Фамилия;
+            return Фамилия + " " + Имя;
         }
     }
     public partial class Grades 

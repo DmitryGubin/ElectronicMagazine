@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ElectronicMagazine.Magazine"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddGrades">
+      Title="Редактирование оценки">
     <Page.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
