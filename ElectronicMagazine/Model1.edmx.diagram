@@ -4,22 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5b988a0ed83d423aaef48f36aec25df3" Name="Diagram1">
-        <EntityTypeShape EntityType="JournalModel.Classes" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Discipline" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Grades" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Role" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Students" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Teachers" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="JournalModel.Users" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <AssociationConnector Association="JournalModel.FK_Classes_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JournalModel.FK_Students_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JournalModel.FK_Grades_ToTable_3" ManuallyRouted="false" />
-        <AssociationConnector Association="JournalModel.FK_Teachers_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JournalModel.FK_Grades_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JournalModel.FK_Table_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="JournalModel.FK_Students_ToTable_1" ManuallyRouted="false" />
-        <AssociationConnector Association="JournalModel.FK_Teachers_ToTable_1" ManuallyRouted="false" />
+      <Diagram DiagramId="2ae7520bbc5846e499d6df26510bc372" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Classes" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Discipline" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Grades" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Students" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Teachers" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Users" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Classes_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Students_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Grades_ToTable_3" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Teachers_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Grades_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Students_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Teachers_ToTable_1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

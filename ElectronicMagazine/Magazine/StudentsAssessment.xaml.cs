@@ -52,7 +52,6 @@ namespace ElectronicMagazine.Magazine
         {
             TitleName.Content = StudentsProf.FirstName;
             TitleSecondName.Content = StudentsProf.SecondName;
-            TitleClass.Content = StudentsProf.Class;
             Birthday.Content = StudentsProf.Birthday;
         }
 

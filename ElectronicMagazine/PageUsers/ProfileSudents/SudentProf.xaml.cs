@@ -34,21 +34,20 @@ namespace ElectronicMagazine.PageUsers.ProfileSudents
         }
         public void Update()
         {
-            // Получаем студента по Id_User
+            
             var student = entities.Students.FirstOrDefault(s => s.Id == _studentsId);
 
             if (student != null)
             {
-                // Обновляем содержимое элементов управления
+                
                 TitleName.Content = student.Имя;
                 TitleSecondName.Content = student.Фамилия;
-                TitleClass.Content = student.Id_Класса; // Возможно, вам нужно получить название класса
                 Birthday.Content = student.Дата_рождения;
             }
         }
         private void ShowGrades()
         {
-            // Получаем выбранный предмет из ComboBox
+            
             var selectedDiscipline = cDiscipline.SelectedItem as Discipline;
             if (selectedDiscipline == null)
             {
@@ -56,7 +55,7 @@ namespace ElectronicMagazine.PageUsers.ProfileSudents
                 return;
             }
 
-            // Получаем выбранного студента
+            
             var selectedStudent = entities.Students.FirstOrDefault(s => s.Id == _studentsId);
             if (selectedStudent == null)
             {
@@ -64,7 +63,7 @@ namespace ElectronicMagazine.PageUsers.ProfileSudents
                 return;
             }
 
-            // Фильтруем оценки
+            
             var grades = entities.Grades
                 .Where(g => g.Id_Студента == selectedStudent.Id && g.Id_Дисциплины == selectedDiscipline.Id)
                 .ToList();
@@ -80,9 +79,9 @@ namespace ElectronicMagazine.PageUsers.ProfileSudents
                 LableAverage.Content = "0";
             }
 
-            // Выводим оценки в DataGrid
+            
             dGrid.ItemsSource = grades;
-            dGrid.Items.Refresh(); // Обновите DataGrid
+            dGrid.Items.Refresh(); 
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

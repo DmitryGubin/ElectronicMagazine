@@ -36,7 +36,7 @@ namespace ElectronicMagazine.Menu
             {
                 TitleDiscipline.Name = disciplines;
 
-                var window = new Background(int.Parse(selectedItem.Класс.ToString()), disciplines);
+                var window = new Background(int.Parse(selectedItem.Id.ToString()), disciplines);
 
                 window.Show();
                 this.Close();

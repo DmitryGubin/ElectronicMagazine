@@ -12,7 +12,7 @@
             <ImageBrush ImageSource="/Resources/fon.jpg"/>
         </Grid.Background>
         <Button Content="Выбрать" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="44" Width="122" Click="Button_Click"/>
-        <Label Content="Класс" HorizontalAlignment="Left" Margin="150,95,0,0" VerticalAlignment="Top" Width="82"/>
+        <Label Content="Группа" HorizontalAlignment="Left" Margin="150,95,0,0" VerticalAlignment="Top" Width="82"/>
         <ComboBox x:Name="ComboBoxClass" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Width="150" Height="37" SelectionChanged="ComboBoxClass_SelectionChanged"/>
         <Label Content="Вы вошли как: " HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Width="94"/>
         <Label x:Name="LableFirstName" Content="Label" HorizontalAlignment="Left" Margin="136,32,0,0" VerticalAlignment="Top"/>

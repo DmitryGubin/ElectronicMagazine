@@ -30,11 +30,9 @@ Width="*"></DataGridTextColumn>
         <Label x:Name="TitleName" Content="Label" HorizontalAlignment="Left" Margin="210,15,0,0" VerticalAlignment="Top"/>
         <Label x:Name="TitleSecondName" Content="Label" HorizontalAlignment="Left" Margin="210,41,0,0" VerticalAlignment="Top"/>
         <Label x:Name="Birthday" Content="Label" HorizontalAlignment="Left" Margin="210,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.061,0.462"/>
-        <Label x:Name="TitleClass" Content="Класс" HorizontalAlignment="Left" Margin="210,93,0,0" VerticalAlignment="Top"/>
         <Label Content="Имя:" HorizontalAlignment="Left" Margin="114,15,0,0" VerticalAlignment="Top"/>
         <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="113,41,0,0" VerticalAlignment="Top"/>
         <Label Content="Дата рождения:" HorizontalAlignment="Left" Margin="113,67,0,0" VerticalAlignment="Top"/>
-        <Label Content="Класс:" HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top"/>
         <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
             Click="btnBack_Click" Height="64"
         Width="68" VerticalAlignment="Top"

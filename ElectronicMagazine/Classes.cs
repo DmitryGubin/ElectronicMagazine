@@ -20,8 +20,7 @@ namespace ElectronicMagazine
         }
     
         public int Id { get; set; }
-        public Nullable<int> Класс { get; set; }
-        public string Учебный_год { get; set; }
+        public string Класс { get; set; }
         public Nullable<int> Id_Дисциплины { get; set; }
     
         public virtual Discipline Discipline { get; set; }
