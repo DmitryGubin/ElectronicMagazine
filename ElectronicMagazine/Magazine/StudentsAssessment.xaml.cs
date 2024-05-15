@@ -63,6 +63,18 @@ namespace ElectronicMagazine.Magazine
                     .Where(attr => attr.Id_Студента == student.Id && attr.Id_Дисциплины == discipline.Id)
                     .ToList();
 
+
+            if (grades != null && grades.Any())
+            {
+                double averageGrade = grades.Average(attr => Convert.ToDouble(attr.Оценка));
+
+                averageGrade = Math.Round(averageGrade, 1);
+
+                LableAverage.Content = averageGrade;
+            }
+            else
+                LableAverage.Content = "0";
+
             dGrid.ItemsSource = grades;
         }
 

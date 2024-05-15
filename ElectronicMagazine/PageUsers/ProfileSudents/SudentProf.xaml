@@ -1,0 +1,51 @@
+﻿<Window x:Class="ElectronicMagazine.PageUsers.ProfileSudents.SudentProf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ElectronicMagazine.PageUsers.ProfileSudents"
+        mc:Ignorable="d"
+        Title="Профиль" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/fon.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="377*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0"  Grid.Column="1" Margin="0,0,0,29" SelectionChanged="dGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Оценка" Binding="{Binding Оценка}"
+Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата оценки" Binding="{Binding Дата_оценки}"
+Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Image x:Name="ImageStudens" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="TitleName" Content="Label" HorizontalAlignment="Left" Margin="210,15,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="TitleSecondName" Content="Label" HorizontalAlignment="Left" Margin="210,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Birthday" Content="Label" HorizontalAlignment="Left" Margin="210,67,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.061,0.462"/>
+        <Label x:Name="TitleClass" Content="Класс" HorizontalAlignment="Left" Margin="210,93,0,0" VerticalAlignment="Top"/>
+        <Label Content="Имя:" HorizontalAlignment="Left" Margin="114,15,0,0" VerticalAlignment="Top"/>
+        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="113,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата рождения:" HorizontalAlignment="Left" Margin="113,67,0,0" VerticalAlignment="Top"/>
+        <Label Content="Класс:" HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top"/>
+        <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
+            Click="btnBack_Click" Height="64"
+        Width="68" VerticalAlignment="Top"
+            Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,10,0,0" Grid.Row="1">            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image  Source="/Magazine/icon/back.png" Stretch="Fill" />
+                </DataTemplate>
+            </Button.ContentTemplate>        </Button>
+        <Label Grid.Column="1" Content="Средний балл:" HorizontalAlignment="Left" Margin="46,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="18"/>
+        <Label x:Name="LableAverage" Grid.Column="1" HorizontalAlignment="Left" Margin="191,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="16"/>
+        <ComboBox x:Name="cDiscipline" HorizontalAlignment="Left" Margin="54,178,0,0" VerticalAlignment="Top" Width="164" Height="27"/>
+        <Label Content="Предмет" HorizontalAlignment="Left" Margin="54,149,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

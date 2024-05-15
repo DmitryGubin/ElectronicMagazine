@@ -44,7 +44,7 @@ Width="60" VerticalAlignment="Center"
         <Label Content="Имя пользователя" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="3" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Center" Width="154" Height="26"/>
         <Label Content="Пароль" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Center" Width="154" Height="26"/>
+        <TextBox x:Name="PasswordText" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Center" Width="154" Height="26"/>
 
 
     </Grid>

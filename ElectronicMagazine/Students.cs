@@ -25,8 +25,10 @@ namespace ElectronicMagazine
         public Nullable<System.DateTime> Дата_рождения { get; set; }
         public string PhotoPath { get; set; }
         public Nullable<int> Id_Класса { get; set; }
+        public Nullable<int> Id_User { get; set; }
     
         public virtual Classes Classes { get; set; }
         public virtual ICollection<Grades> Grades { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

@@ -15,14 +15,6 @@
         </Grid.RowDefinitions>
         <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0" Margin="0,0,0,5" SelectionChanged="dGrid_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Фото" Width="auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image x:Name="ImageStudens" Height="80" Width="80" VerticalAlignment="Center"
-Source="{Binding PhotoPath}"></Image>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Имя}"
 Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Фамилия}"
@@ -31,6 +23,21 @@ Width="100"></DataGridTextColumn>
 Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Класс" Binding="{Binding Id_Класса}"
 Width="*"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Фото" Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image x:Name="ImageStudens" Height="80" Width="80" VerticalAlignment="Center">
+                                <Image.Source>
+                                    <Binding Path="PhotoPath">
+                                        <Binding.TargetNullValue>
+                                            <BitmapImage UriSource="/StudensPhoto/user.png" />
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -61,7 +68,7 @@ Name="btnDel" Click="btnDel_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добваить ученика" HorizontalAlignment="Left" Margin="701,0,0,0" VerticalAlignment="Top" Click="ClickAdd" Height="64"
+        <Button Content="Добваить ученика" HorizontalAlignment="Left" Margin="695,0,0,0" VerticalAlignment="Top" Click="ClickAdd" Height="64"
         Width="68" Background="{x:Null}" BorderBrush="{x:Null}" Grid.Row="1">
             <Button.ContentTemplate >
                 <DataTemplate >
@@ -80,5 +87,13 @@ Width="68" VerticalAlignment="Top"
             </Button.ContentTemplate>        </Button>
         <TextBox x:Name="SearchText" HorizontalAlignment="Left" Margin="330,22,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188" Height="20" TextChanged="SearchText_TextChanged"/>
         <Label Content="Поиск" HorizontalAlignment="Left" Margin="255,19,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="616,0,0,0" Grid.Row="1" VerticalAlignment="Center" Click="Button_Click" Height="60"
+        Width="74" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <Image  Source="/Resources/excel2.png" Stretch="Fill" Height="55" Width="60" />
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
     </Grid>
 </Page>

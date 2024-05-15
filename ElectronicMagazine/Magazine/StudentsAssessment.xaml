@@ -81,7 +81,9 @@ Background="{x:Null}" BorderBrush="{x:Null}" Margin="422,10,0,0" Grid.Row="1">
                 <DataTemplate >
                     <Image  Source="icon/back.png" Stretch="Fill" />
                 </DataTemplate>
-            </Button.ContentTemplate>        </Button>
+            </Button.ContentTemplate>        </Button>
+        <Label Grid.Column="1" Content="Средний балл:" HorizontalAlignment="Left" Margin="46,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="18"/>
+        <Label x:Name="LableAverage" Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="191,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="16"/>
 
     </Grid>
 </Page>

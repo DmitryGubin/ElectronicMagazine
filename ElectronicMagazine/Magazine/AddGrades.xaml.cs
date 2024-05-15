@@ -88,10 +88,5 @@ namespace ElectronicMagazine.Magazine
 
 
         }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.GoBack();
-        }
     }
 }

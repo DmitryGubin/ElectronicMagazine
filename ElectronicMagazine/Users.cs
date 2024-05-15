@@ -16,6 +16,7 @@ namespace ElectronicMagazine
     {
         public Users()
         {
+            this.Students = new HashSet<Students>();
             this.Teachers = new HashSet<Teachers>();
         }
     
@@ -26,6 +27,7 @@ namespace ElectronicMagazine
         public string Name { get; set; }
     
         public virtual Role Role { get; set; }
+        public virtual ICollection<Students> Students { get; set; }
         public virtual ICollection<Teachers> Teachers { get; set; }
     }
 }

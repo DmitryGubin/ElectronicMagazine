@@ -122,6 +122,9 @@
     <Compile Include="Auth\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CaphaWin\WindowCapha.xaml.cs">
+      <DependentUpon>WindowCapha.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -162,6 +165,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PageUsers\ProfileSudents\SudentProf.xaml.cs">
+      <DependentUpon>SudentProf.xaml</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -222,6 +228,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CaphaWin\WindowCapha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Magazine\AddGrades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -239,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Menu\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageUsers\ProfileSudents\SudentProf.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -311,9 +325,16 @@
     <Resource Include="Magazine\icon\disk.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\excel2.png" />
+    <Resource Include="Resources\excel.png" />
     <Resource Include="Resources\dmitry.jpg" />
     <Resource Include="StudensPhoto\dmitry.jpg" />
     <Resource Include="AdminPanel\Resources\dmitry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PageUsers\ProfileTeacher\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -324,6 +345,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

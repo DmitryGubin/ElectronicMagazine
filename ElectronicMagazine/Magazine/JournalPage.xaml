@@ -18,7 +18,6 @@
 
         <ListBox x:Name="ListBoxStudens" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_SelectionChanged"/>
 
-
         <Frame Grid.Row="1" Name="MainFrame"></Frame>
     </Grid>
 </Page>

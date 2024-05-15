@@ -22,11 +22,13 @@ namespace ElectronicMagazine.Magazine
     {
         JournalEntities entities = new JournalEntities();
         string discipline;
+        int group;
         public JournalPage(int group1, string discipline)
         {
             InitializeComponent();
 
             this.discipline = discipline;
+            this.group = group1;
 
             Manager.MainFrame = Manager.MainFrame;
 
@@ -60,9 +62,12 @@ namespace ElectronicMagazine.Magazine
 
 
 
+
+
             var linq = (from attr in entities.Discipline where attr.Дисциплина == discipline select attr).Single();
             Manager.MainFrame.Navigate(new StudentsAssessment(linq, (ListBoxStudens.SelectedItem as Students)));
 
         }
+
     }
 }

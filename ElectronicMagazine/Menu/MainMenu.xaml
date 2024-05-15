@@ -19,7 +19,7 @@
         <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
     Click="btnBack_Click" Height="64"
 Width="68" VerticalAlignment="Top"
-    Background="{x:Null}" BorderBrush="{x:Null}" Margin="16,360,0,0">            <Button.ContentTemplate >
+    Background="{x:Null}" BorderBrush="{x:Null}" Margin="16,340,0,0">            <Button.ContentTemplate >
                 <DataTemplate >
                     <Image  Source="/Magazine/icon/back.png" Stretch="Fill" />
                 </DataTemplate>
