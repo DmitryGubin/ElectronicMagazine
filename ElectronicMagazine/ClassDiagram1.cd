@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ElectronicMagazine.AdminPanel.BackgroundPanel" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AdminPanel\BackgroundPanel.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.AdminPanel.EditPanelStudent" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAIAABAAAAQAAAAAAAAACAAA=</HashCode>
+      <FileName>AdminPanel\EditPanelStudent.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.AdminPanel.EditPanelTeacher" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAABAAAAQAAAAAAAAAAAAI=</HashCode>
+      <FileName>AdminPanel\EditPanelTeacher.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.AdminPanel.EditStudents" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQgEAAAAAAAAAAAAEAIMAAAAAAQAAABAAAAACBAA=</HashCode>
+      <FileName>AdminPanel\EditStudents.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.AdminPanel.PageEditUsers" BaseTypeListCollapsed="true">
+    <Position X="15" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAEAAAAAAAAAIAABAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>AdminPanel\PageEditUsers.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.AdminPanel.PageMenu" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAQAAAAAAAAAAABAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>AdminPanel\PageMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.AdminPanel.PageUser" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAQgEAAAAAAAAAAAAAAIIAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>AdminPanel\PageUser.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.AdminPanel.PanelTeacher" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQgEAAAAAAAAAAAAAAIIAAAAAAQAAABAAAAAAAAI=</HashCode>
+      <FileName>AdminPanel\PanelTeacher.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.Auth.Auth" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAEAAEACAAAAAAAAAAQAAAAAAAAAACAE=</HashCode>
+      <FileName>Auth\Auth.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.Auth.Registration" BaseTypeListCollapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAACAAAAAAAAAAQAIAAAAAAAAAAA=</HashCode>
+      <FileName>Auth\Registration.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.CaphaWin.WindowCapha" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>CaphaWin\WindowCapha.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.Magazine.AddGrades" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAABAAAQAAAAACAAA=</HashCode>
+      <FileName>Magazine\AddGrades.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.Magazine.Background" BaseTypeListCollapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Magazine\Background.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.Magazine.JournalPage" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAA=</HashCode>
+      <FileName>Magazine\JournalPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.Magazine.StudentsAssessment" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQgEAACAAAEAAAARAAIAAAAAAAQAAgBAAAAAAAAI=</HashCode>
+      <FileName>Magazine\StudentsAssessment.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.Menu.MainMenu" BaseTypeListCollapsed="true">
+    <Position X="20.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAMEAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Menu\MainMenu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ElectronicMagazine.PageUsers.ProfileSudents.SudentProf" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQABAAAAAAAAAAABAAoAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>PageUsers\ProfileSudents\SudentProf.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

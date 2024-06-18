@@ -75,6 +75,9 @@
         <ImageBrush ImageSource="/Resources/fon.jpg"/>
     </Window.Background>
     <Grid Margin="1,0,-1,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/rozov.jpg"/>
+        </Grid.Background>
         <Label  Content="Логин" HorizontalAlignment="Left" Margin="86,110,0,0" VerticalAlignment="Top" Foreground="#7f8291" FontWeight="Bold" FontSize="16"/>
         <TextBox x:Name="LoginBox" HorizontalAlignment="Center" Margin="0,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278" Height="33"/>
         <Label Content="Пароль" HorizontalAlignment="Left" Margin="86,184,0,0" VerticalAlignment="Top" Foreground="#7f8291" FontWeight="Bold" FontSize="16"/>

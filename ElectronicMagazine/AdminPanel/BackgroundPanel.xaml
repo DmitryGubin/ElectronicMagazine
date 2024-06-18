@@ -10,6 +10,9 @@
         <ImageBrush ImageSource="/Resources/fon.jpg"/>
     </Window.Background>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/rozov.jpg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>

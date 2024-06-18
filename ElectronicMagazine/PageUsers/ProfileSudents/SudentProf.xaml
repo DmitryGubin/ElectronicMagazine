@@ -8,7 +8,7 @@
         Title="Профиль" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/fon.jpg"/>
+            <ImageBrush ImageSource="/Resources/rozov.jpg"/>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="377*"></RowDefinition>
@@ -18,7 +18,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="500"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0"  Grid.Column="1" Margin="0,0,0,29" SelectionChanged="dGrid_SelectionChanged">
+        <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0"  Grid.Column="1" Margin="0,0,0,117" SelectionChanged="dGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Оценка" Binding="{Binding Оценка}"
 Width="100"></DataGridTextColumn>

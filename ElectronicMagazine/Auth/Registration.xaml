@@ -65,7 +65,7 @@
     </Window.Resources>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/fon.jpg"/>
+            <ImageBrush ImageSource="/Resources/rozov.jpg"/>
         </Grid.Background>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="76,375,0,0" VerticalAlignment="Top" Width="278" Height="33"/>
         <Label Content="Введите пароль" HorizontalAlignment="Left" Margin="76,344,0,0" VerticalAlignment="Top" Width="106"/>
