@@ -16,16 +16,16 @@ namespace ElectronicMagazine
     {
         public Discipline()
         {
-            this.Classes = new HashSet<Classes>();
             this.Grades = new HashSet<Grades>();
+            this.DisTeacher = new HashSet<DisTeacher>();
             this.Teachers = new HashSet<Teachers>();
         }
     
         public int Id { get; set; }
         public string Дисциплина { get; set; }
     
-        public virtual ICollection<Classes> Classes { get; set; }
         public virtual ICollection<Grades> Grades { get; set; }
+        public virtual ICollection<DisTeacher> DisTeacher { get; set; }
         public virtual ICollection<Teachers> Teachers { get; set; }
     }
 }

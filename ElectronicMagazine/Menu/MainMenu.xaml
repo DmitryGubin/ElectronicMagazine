@@ -9,7 +9,7 @@
         Title="Меню" Height="450" Width="450" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Resources/fon.jpg"/>
+            <ImageBrush ImageSource="/Resources/rozov.jpg"/>
         </Grid.Background>
         <Button Content="Выбрать" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="44" Width="122" Click="Button_Click"/>
         <Label Content="Группа" HorizontalAlignment="Left" Margin="150,95,0,0" VerticalAlignment="Top" Width="82"/>

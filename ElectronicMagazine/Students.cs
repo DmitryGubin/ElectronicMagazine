@@ -27,7 +27,6 @@ namespace ElectronicMagazine
         public Nullable<int> Id_Класса { get; set; }
         public Nullable<int> Id_User { get; set; }
     
-        public virtual Classes Classes { get; set; }
         public virtual ICollection<Grades> Grades { get; set; }
         public virtual Users Users { get; set; }
     }

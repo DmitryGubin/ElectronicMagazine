@@ -4,15 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище JournalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище u0488049_dmitryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Classes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Класс" Type="nvarchar" MaxLength="50" />
-          <Property Name="Учебный_год" Type="nvarchar" MaxLength="50" />
-          <Property Name="Id_Дисциплины" Type="int" />
         </EntityType>
         <EntityType Name="Discipline">
           <Key>
@@ -20,6 +18,14 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Дисциплина" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DisTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Dis" Type="int" />
+          <Property Name="Id_Teacher" Type="int" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -30,6 +36,14 @@
           <Property Name="Id_Дисциплины" Type="int" />
           <Property Name="Дата_оценки" Type="datetime" />
           <Property Name="Оценка" Type="int" />
+        </EntityType>
+        <EntityType Name="GroupTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Group" Type="int" />
+          <Property Name="Id_Teacher" Type="int" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -70,18 +84,6 @@
           <Property Name="id_Role" Type="int" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_Classes_ToTable">
-          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
-          <End Role="Classes" Type="Self.Classes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Discipline">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Classes">
-              <PropertyRef Name="Id_Дисциплины" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Grades_ToTable">
           <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
           <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
@@ -106,15 +108,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Students_ToTable">
+        <Association Name="FK_GroupTeacher_ToTable">
           <End Role="Classes" Type="Self.Classes" Multiplicity="0..1" />
-          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <End Role="GroupTeacher" Type="Self.GroupTeacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Classes">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="Id_Класса" />
+            <Dependent Role="GroupTeacher">
+              <PropertyRef Name="Id_Group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupTeacher_ToTable_1">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+          <End Role="GroupTeacher" Type="Self.GroupTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupTeacher">
+              <PropertyRef Name="Id_Teacher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -142,6 +156,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Table_ToTable_1">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+          <End Role="DisTeacher" Type="Self.DisTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTeacher">
+              <PropertyRef Name="Id_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable_2">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="DisTeacher" Type="Self.DisTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTeacher">
+              <PropertyRef Name="Id_Dis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Teachers_ToTable">
           <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
           <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
@@ -166,18 +204,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище JournalModelContainer">
+        <EntityContainer Name="Хранилище u0488049_dmitryModelContainer">
           <EntitySet Name="Classes" EntityType="Self.Classes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Discipline" EntityType="Self.Discipline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DisTeacher" EntityType="Self.DisTeacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Grades" EntityType="Self.Grades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupTeacher" EntityType="Self.GroupTeacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Classes_ToTable" Association="Self.FK_Classes_ToTable">
-            <End Role="Discipline" EntitySet="Discipline" />
-            <End Role="Classes" EntitySet="Classes" />
-          </AssociationSet>
           <AssociationSet Name="FK_Grades_ToTable" Association="Self.FK_Grades_ToTable">
             <End Role="Students" EntitySet="Students" />
             <End Role="Grades" EntitySet="Grades" />
@@ -186,9 +222,13 @@
             <End Role="Discipline" EntitySet="Discipline" />
             <End Role="Grades" EntitySet="Grades" />
           </AssociationSet>
-          <AssociationSet Name="FK_Students_ToTable" Association="Self.FK_Students_ToTable">
+          <AssociationSet Name="FK_GroupTeacher_ToTable" Association="Self.FK_GroupTeacher_ToTable">
             <End Role="Classes" EntitySet="Classes" />
-            <End Role="Students" EntitySet="Students" />
+            <End Role="GroupTeacher" EntitySet="GroupTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupTeacher_ToTable_1" Association="Self.FK_GroupTeacher_ToTable_1">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="GroupTeacher" EntitySet="GroupTeacher" />
           </AssociationSet>
           <AssociationSet Name="FK_Students_ToTable_1" Association="Self.FK_Students_ToTable_1">
             <End Role="Users" EntitySet="Users" />
@@ -197,6 +237,14 @@
           <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
             <End Role="Role" EntitySet="Role" />
             <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_1" Association="Self.FK_Table_ToTable_1">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="DisTeacher" EntitySet="DisTeacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_2" Association="Self.FK_Table_ToTable_2">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="DisTeacher" EntitySet="DisTeacher" />
           </AssociationSet>
           <AssociationSet Name="FK_Teachers_ToTable" Association="Self.FK_Teachers_ToTable">
             <End Role="Discipline" EntitySet="Discipline" />
@@ -211,17 +259,14 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="JournalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="u0488049_dmitryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Classes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Класс" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Учебный_год" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Id_Дисциплины" Type="Int32" />
-          <NavigationProperty Name="Discipline" Relationship="Self.FK_Classes_ToTable" FromRole="Classes" ToRole="Discipline" />
-          <NavigationProperty Name="Students" Relationship="Self.FK_Students_ToTable" FromRole="Classes" ToRole="Students" />
+          <NavigationProperty Name="GroupTeacher" Relationship="Self.FK_GroupTeacher_ToTable" FromRole="Classes" ToRole="GroupTeacher" />
         </EntityType>
         <EntityType Name="Discipline">
           <Key>
@@ -229,9 +274,19 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Дисциплина" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Classes" Relationship="Self.FK_Classes_ToTable" FromRole="Discipline" ToRole="Classes" />
           <NavigationProperty Name="Grades" Relationship="Self.FK_Grades_ToTable_3" FromRole="Discipline" ToRole="Grades" />
+          <NavigationProperty Name="DisTeacher" Relationship="Self.FK_Table_ToTable_2" FromRole="Discipline" ToRole="DisTeacher" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_ToTable" FromRole="Discipline" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="DisTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Dis" Type="Int32" />
+          <Property Name="Id_Teacher" Type="Int32" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Table_ToTable_2" FromRole="DisTeacher" ToRole="Discipline" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Table_ToTable_1" FromRole="DisTeacher" ToRole="Teachers" />
         </EntityType>
         <EntityType Name="Grades">
           <Key>
@@ -244,6 +299,16 @@
           <Property Name="Оценка" Type="Int32" />
           <NavigationProperty Name="Discipline" Relationship="Self.FK_Grades_ToTable_3" FromRole="Grades" ToRole="Discipline" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Grades_ToTable" FromRole="Grades" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="GroupTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Group" Type="Int32" />
+          <Property Name="Id_Teacher" Type="Int32" />
+          <NavigationProperty Name="Classes" Relationship="Self.FK_GroupTeacher_ToTable" FromRole="GroupTeacher" ToRole="Classes" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_GroupTeacher_ToTable_1" FromRole="GroupTeacher" ToRole="Teachers" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -264,7 +329,6 @@
           <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Id_Класса" Type="Int32" />
           <Property Name="Id_User" Type="Int32" />
-          <NavigationProperty Name="Classes" Relationship="Self.FK_Students_ToTable" FromRole="Students" ToRole="Classes" />
           <NavigationProperty Name="Grades" Relationship="Self.FK_Grades_ToTable" FromRole="Students" ToRole="Grades" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Students_ToTable_1" FromRole="Students" ToRole="Users" />
         </EntityType>
@@ -278,6 +342,8 @@
           <Property Name="Id_Дисциплины" Type="Int32" />
           <Property Name="id_User" Type="Int32" />
           <NavigationProperty Name="Discipline" Relationship="Self.FK_Teachers_ToTable" FromRole="Teachers" ToRole="Discipline" />
+          <NavigationProperty Name="DisTeacher" Relationship="Self.FK_Table_ToTable_1" FromRole="Teachers" ToRole="DisTeacher" />
+          <NavigationProperty Name="GroupTeacher" Relationship="Self.FK_GroupTeacher_ToTable_1" FromRole="Teachers" ToRole="GroupTeacher" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Teachers_ToTable_1" FromRole="Teachers" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
@@ -293,27 +359,15 @@
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_ToTable_1" FromRole="Users" ToRole="Students" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_ToTable_1" FromRole="Users" ToRole="Teachers" />
         </EntityType>
-        <Association Name="FK_Classes_ToTable">
-          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
-          <End Role="Classes" Type="Self.Classes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Discipline">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Classes">
-              <PropertyRef Name="Id_Дисциплины" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Students_ToTable">
+        <Association Name="FK_GroupTeacher_ToTable">
           <End Role="Classes" Type="Self.Classes" Multiplicity="0..1" />
-          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <End Role="GroupTeacher" Type="Self.GroupTeacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Classes">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="Id_Класса" />
+            <Dependent Role="GroupTeacher">
+              <PropertyRef Name="Id_Group" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -329,6 +383,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Table_ToTable_2">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="DisTeacher" Type="Self.DisTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTeacher">
+              <PropertyRef Name="Id_Dis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Teachers_ToTable">
           <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
           <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
@@ -341,6 +407,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Table_ToTable_1">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+          <End Role="DisTeacher" Type="Self.DisTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DisTeacher">
+              <PropertyRef Name="Id_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Grades_ToTable">
           <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
           <End Role="Grades" Type="Self.Grades" Multiplicity="*" />
@@ -350,6 +428,18 @@
             </Principal>
             <Dependent Role="Grades">
               <PropertyRef Name="Id_Студента" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GroupTeacher_ToTable_1">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+          <End Role="GroupTeacher" Type="Self.GroupTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupTeacher">
+              <PropertyRef Name="Id_Teacher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -392,30 +482,40 @@
         <EntityContainer Name="JournalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Classes" EntityType="Self.Classes" />
           <EntitySet Name="Discipline" EntityType="Self.Discipline" />
+          <EntitySet Name="DisTeacher" EntityType="Self.DisTeacher" />
           <EntitySet Name="Grades" EntityType="Self.Grades" />
+          <EntitySet Name="GroupTeacher" EntityType="Self.GroupTeacher" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Students" EntityType="Self.Students" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <AssociationSet Name="FK_Classes_ToTable" Association="Self.FK_Classes_ToTable">
-            <End Role="Discipline" EntitySet="Discipline" />
+          <AssociationSet Name="FK_GroupTeacher_ToTable" Association="Self.FK_GroupTeacher_ToTable">
             <End Role="Classes" EntitySet="Classes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Students_ToTable" Association="Self.FK_Students_ToTable">
-            <End Role="Classes" EntitySet="Classes" />
-            <End Role="Students" EntitySet="Students" />
+            <End Role="GroupTeacher" EntitySet="GroupTeacher" />
           </AssociationSet>
           <AssociationSet Name="FK_Grades_ToTable_3" Association="Self.FK_Grades_ToTable_3">
             <End Role="Discipline" EntitySet="Discipline" />
             <End Role="Grades" EntitySet="Grades" />
           </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_2" Association="Self.FK_Table_ToTable_2">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="DisTeacher" EntitySet="DisTeacher" />
+          </AssociationSet>
           <AssociationSet Name="FK_Teachers_ToTable" Association="Self.FK_Teachers_ToTable">
             <End Role="Discipline" EntitySet="Discipline" />
             <End Role="Teachers" EntitySet="Teachers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_1" Association="Self.FK_Table_ToTable_1">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="DisTeacher" EntitySet="DisTeacher" />
+          </AssociationSet>
           <AssociationSet Name="FK_Grades_ToTable" Association="Self.FK_Grades_ToTable">
             <End Role="Students" EntitySet="Students" />
             <End Role="Grades" EntitySet="Grades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GroupTeacher_ToTable_1" Association="Self.FK_GroupTeacher_ToTable_1">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="GroupTeacher" EntitySet="GroupTeacher" />
           </AssociationSet>
           <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
             <End Role="Role" EntitySet="Role" />
@@ -435,27 +535,34 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище JournalModelContainer" CdmEntityContainer="JournalEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище u0488049_dmitryModelContainer" CdmEntityContainer="JournalEntities">
           <EntitySetMapping Name="Classes">
-            <EntityTypeMapping TypeName="JournalModel.Classes">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.Classes">
               <MappingFragment StoreEntitySet="Classes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Класс" ColumnName="Класс" />
-                <ScalarProperty Name="Учебный_год" ColumnName="Учебный_год" />
-                <ScalarProperty Name="Id_Дисциплины" ColumnName="Id_Дисциплины" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Discipline">
-            <EntityTypeMapping TypeName="JournalModel.Discipline">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.Discipline">
               <MappingFragment StoreEntitySet="Discipline">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Дисциплина" ColumnName="Дисциплина" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DisTeacher">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.DisTeacher">
+              <MappingFragment StoreEntitySet="DisTeacher">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Dis" ColumnName="Id_Dis" />
+                <ScalarProperty Name="Id_Teacher" ColumnName="Id_Teacher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Grades">
-            <EntityTypeMapping TypeName="JournalModel.Grades">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.Grades">
               <MappingFragment StoreEntitySet="Grades">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Id_Студента" ColumnName="Id_Студента" />
@@ -465,8 +572,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="GroupTeacher">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.GroupTeacher">
+              <MappingFragment StoreEntitySet="GroupTeacher">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Group" ColumnName="Id_Group" />
+                <ScalarProperty Name="Id_Teacher" ColumnName="Id_Teacher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="JournalModel.Role">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Role1" ColumnName="Role" />
@@ -474,7 +590,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="JournalModel.Students">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.Students">
               <MappingFragment StoreEntitySet="Students">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Имя" ColumnName="Имя" />
@@ -487,7 +603,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teachers">
-            <EntityTypeMapping TypeName="JournalModel.Teachers">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.Teachers">
               <MappingFragment StoreEntitySet="Teachers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Имя_" ColumnName="Имя " />
@@ -498,7 +614,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="JournalModel.Users">
+            <EntityTypeMapping TypeName="u0488049_dmitryModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Login" ColumnName="Login" />

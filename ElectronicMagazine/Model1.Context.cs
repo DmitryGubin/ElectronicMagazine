@@ -27,7 +27,9 @@ namespace ElectronicMagazine
     
         public DbSet<Classes> Classes { get; set; }
         public DbSet<Discipline> Discipline { get; set; }
+        public DbSet<DisTeacher> DisTeacher { get; set; }
         public DbSet<Grades> Grades { get; set; }
+        public DbSet<GroupTeacher> GroupTeacher { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Students> Students { get; set; }
         public DbSet<Teachers> Teachers { get; set; }

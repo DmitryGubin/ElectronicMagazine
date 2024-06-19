@@ -12,23 +12,13 @@ namespace ElectronicMagazine
     using System;
     using System.Collections.Generic;
     
-    public partial class Teachers
+    public partial class DisTeacher
     {
-        public Teachers()
-        {
-            this.DisTeacher = new HashSet<DisTeacher>();
-            this.GroupTeacher = new HashSet<GroupTeacher>();
-        }
-    
         public int Id { get; set; }
-        public string Имя_ { get; set; }
-        public string Фамилия { get; set; }
-        public Nullable<int> Id_Дисциплины { get; set; }
-        public Nullable<int> id_User { get; set; }
+        public Nullable<int> Id_Dis { get; set; }
+        public Nullable<int> Id_Teacher { get; set; }
     
         public virtual Discipline Discipline { get; set; }
-        public virtual ICollection<DisTeacher> DisTeacher { get; set; }
-        public virtual ICollection<GroupTeacher> GroupTeacher { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual Teachers Teachers { get; set; }
     }
 }

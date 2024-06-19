@@ -85,28 +85,43 @@ namespace ElectronicMagazine.Magazine
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
-            var soft_remove = dGrid.SelectedItems.Cast<Grades>().ToList();
+            var selectedGrades = dGrid.SelectedItems.Cast<Grades>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить следующие {soft_remove.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show($"Вы точно хотите удалить следующие {selectedGrades.Count} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 var context = JournalEntities.GetContext();
+                bool hasErrorOccurred = false;
 
-                foreach (var grade in soft_remove)
+                foreach (var grade in selectedGrades)
                 {
                     var gradeToRemove = context.Grades.Find(grade.Id);
                     if (gradeToRemove != null)
                     {
                         context.Grades.Remove(gradeToRemove);
-                        context.SaveChanges();
-                        dGrid.ItemsSource = JournalEntities.GetContext().Grades.ToList();
-                        ShowStudentGrades(dis);
-                        MessageBox.Show("Данные успешно удалены", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Ошибка при удалении!", "Провал!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        hasErrorOccurred = true;
                     }
                 }
+
+                try
+                {
+                    context.SaveChanges();
+                    dGrid.ItemsSource = context.Grades.ToList();
+                    ShowStudentGrades(dis);
+                    MessageBox.Show("Данные успешно удалены", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ошибка при удалении данных из базы!", "Провал!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                if (hasErrorOccurred)
+                {
+                    MessageBox.Show("Некоторые записи не были найдены и не удалены!", "Предупреждение!", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
                 dGrid.Items.Refresh();
             }
         }
