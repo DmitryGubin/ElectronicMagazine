@@ -12,12 +12,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="75"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
 
-
-        <ListBox x:Name="ListBoxStudens" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListBox_SelectionChanged"/>
-
-        <Frame Grid.Row="1" Name="MainFrame"></Frame>
+<!--d:ItemsSource="{d:SampleData ItemCount=5}"-->
+        <ListBox x:Name="ListBoxStudens" Grid.Row="2"  SelectionChanged="ListBox_SelectionChanged"/>
+        <DataGrid Name="dataGrid" Grid.Row="1" AutoGenerateColumns="True" CellEditEnding="dataGrid_CellEditEnding" />
+        <Frame Grid.Row="3" Name="MainFrame"></Frame>
     </Grid>
 </Page>

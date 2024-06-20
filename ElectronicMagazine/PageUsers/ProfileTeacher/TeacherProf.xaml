@@ -26,11 +26,13 @@
         <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
             Click="btnBack_Click" Height="64"
         Width="68" VerticalAlignment="Top"
-            Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,10,0,0" Grid.Row="1">            <Button.ContentTemplate >
+            Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,10,0,0" Grid.Row="1">
+            <Button.ContentTemplate >
                 <DataTemplate >
                     <Image  Source="/Magazine/icon/back.png" Stretch="Fill" />
                 </DataTemplate>
-            </Button.ContentTemplate>        </Button>
+            </Button.ContentTemplate>
+        </Button>
         <Label x:Name="LableAverage" Grid.Column="1" HorizontalAlignment="Left" Margin="191,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="16"/>
         <ListView Name="MessageListBox" Margin="0,0,0,74" Grid.Column="1">
             <StackPanel HorizontalAlignment="Left" Margin="5">
