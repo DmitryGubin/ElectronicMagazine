@@ -26,6 +26,12 @@ namespace ElectronicMagazine.AdminPanel
         public EditPanelStudent(Students students_)
         {
             InitializeComponent();
+
+            var logins = entities.Users.Select(u => u.Login).ToList();
+
+            foreach (var users in logins)
+                ComboBox_User.Items.Add(users);
+
             foreach (var classes in entities.Classes)
                 ComboClass.Items.Add(classes);
 

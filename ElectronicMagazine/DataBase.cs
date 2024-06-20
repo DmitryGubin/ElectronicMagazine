@@ -2,6 +2,14 @@
 
 namespace ElectronicMagazine
 {
+
+    public partial class Message 
+    {
+        public override string ToString()
+        {
+            return $"Студент - {Author} Время сообщения: {Date}: {Report} "; 
+        }
+    }
     public partial class Students 
     {
         public override string ToString()

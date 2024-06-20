@@ -157,6 +157,10 @@
     <Compile Include="Menu\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Message.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageTemplateSelector.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,12 +179,16 @@
     <Compile Include="PageUsers\ProfileSudents\SudentProf.xaml.cs">
       <DependentUpon>SudentProf.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageUsers\ProfileTeacher\TeacherProf.xaml.cs">
+      <DependentUpon>TeacherProf.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Role.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Students.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TeacherMessageTemplateSelector.cs" />
     <Compile Include="Teachers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -262,6 +270,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageUsers\ProfileTeacher\TeacherProf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -337,9 +349,6 @@
     <Resource Include="Resources\dmitry.jpg" />
     <Resource Include="StudensPhoto\dmitry.jpg" />
     <Resource Include="AdminPanel\Resources\dmitry.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PageUsers\ProfileTeacher\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\refresh.png" />

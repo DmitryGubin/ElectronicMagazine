@@ -107,7 +107,7 @@ namespace ElectronicMagazine.Auth
                             var disciplineText = discipline.Дисциплина;
 
                             MessageBox.Show("Вы вошли как " + user.Login, "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                            var window1 = new MainMenu(disciplineText);
+                            var window1 = new MainMenu(teacher.Id);
 
                             window1.Show();
                             this.Close();
@@ -124,7 +124,7 @@ namespace ElectronicMagazine.Auth
                         Profilb.lograz = user.Name;
 
                         MessageBox.Show("Вы вошли как " + user.Login, "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
-                        var window1 = new SudentProf(studentsId);
+                        var window1 = new SudentProf(this, studentsId);
                         window1.Show();
                         this.Close();
                     }

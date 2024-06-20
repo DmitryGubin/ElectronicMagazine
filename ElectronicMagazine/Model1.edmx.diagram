@@ -4,23 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d1c0f3592bc54193967eb423e146312f" Name="Diagram1">
-        <EntityTypeShape EntityType="u0488049_dmitryModel.Classes" Width="1.5" PointX="6" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="u0488049_dmitryModel.Discipline" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="u0488049_dmitryModel.DisTeacher" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="u0488049_dmitryModel.Grades" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="u0488049_dmitryModel.GroupTeacher" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="u0488049_dmitryModel.Role" Width="1.5" PointX="1.5" PointY="11.875" IsExpanded="true" />
+      <Diagram DiagramId="33498a4a3d9e42d8883e1b6f1b2774cc" Name="Diagram1">
+        <EntityTypeShape EntityType="u0488049_dmitryModel.Classes" Width="1.5" PointX="1.5" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.Discipline" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.DisTeacher" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.Grades" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.GroupTeacher" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.Message" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.Role" Width="1.5" PointX="1.5" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="u0488049_dmitryModel.Students" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="u0488049_dmitryModel.Teachers" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="u0488049_dmitryModel.Users" Width="1.5" PointX="1.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.Teachers" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="u0488049_dmitryModel.Users" Width="1.5" PointX="1.5" PointY="12.375" IsExpanded="true" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_GroupTeacher_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="u0488049_dmitryModel.Students_Classes_FK" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Grades_ToTable_3" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Table_ToTable_2" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Teachers_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Table_ToTable_1" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Grades_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_GroupTeacher_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="u0488049_dmitryModel.Message_Students_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="u0488049_dmitryModel.Message_Teachers_FK" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Table_ToTable" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Students_ToTable_1" ManuallyRouted="false" />
         <AssociationConnector Association="u0488049_dmitryModel.FK_Teachers_ToTable_1" ManuallyRouted="false" />

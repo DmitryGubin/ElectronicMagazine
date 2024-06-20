@@ -20,23 +20,39 @@ namespace ElectronicMagazine.Magazine
     /// </summary>
     public partial class Background : Window
     {
-        string dis;
-        public Background(int group, string discipline)
+        JournalEntities entities = new JournalEntities();
+        int _dis;
+        int _group;
+        int _idTeacher;
+        string disciplineName;
+
+
+        public Background(int group, int discipline, int idTeacher)
         {
-            this.dis = discipline;
+            _dis = discipline;
+            _group = group;
+            _idTeacher = idTeacher;
             InitializeComponent();
+
+            var service = new Discipline();
+
+            var disName = entities.Discipline.FirstOrDefault(t => t.Id == _dis);
+
+            disciplineName = disName.Дисциплина;
 
             Manager.MainFrame = MainFrame;
 
-            Manager.MainFrame.Navigate(new JournalPage(group, discipline));
+            Manager.MainFrame.Navigate(new JournalPage(group, disciplineName));
 
-            sDiscipline.Content = TitleDiscipline.Name;
+            sDiscipline.Content = disciplineName;
+
 
         }
 
         private void Button_Back(object sender, RoutedEventArgs e)
         {
-            var window = new MainMenu(dis);
+
+            var window = new MainMenu(_idTeacher);
 
             window.Show();
             this.Close();

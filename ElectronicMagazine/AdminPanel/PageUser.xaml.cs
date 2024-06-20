@@ -40,7 +40,8 @@ namespace ElectronicMagazine.AdminPanel
 
         private void ClickAdd(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new PageEditUsers(null));
+            dGrid.Items.Refresh();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)

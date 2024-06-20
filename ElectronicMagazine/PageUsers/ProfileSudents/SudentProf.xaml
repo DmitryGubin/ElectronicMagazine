@@ -6,6 +6,29 @@
         xmlns:local="clr-namespace:ElectronicMagazine.PageUsers.ProfileSudents"
         mc:Ignorable="d"
         Title="Профиль" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <DataTemplate x:Key="StudentMessageTemplate">
+            <StackPanel HorizontalAlignment="Right" Margin="5">
+                <TextBlock Text="{Binding Author}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Date, StringFormat=dd/MM/yyyy HH:mm:ss}" FontStyle="Italic"/>
+                <TextBlock Text="{Binding Report}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="TeacherMessageTemplate">
+            <StackPanel HorizontalAlignment="Left" Margin="5">
+                <TextBlock Text="{Binding Author}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Date, StringFormat=dd/MM/yyyy HH:mm:ss}" FontStyle="Italic"/>
+                <TextBlock Text="{Binding Report}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <local:MessageTemplateSelector x:Key="MessageTemplateSelector"
+                                   StudentTemplate="{StaticResource StudentMessageTemplate}"
+                                   TeacherTemplate="{StaticResource TeacherMessageTemplate}"/>
+    </Window.Resources>
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/rozov.jpg"/>
@@ -18,7 +41,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="500"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0"  Grid.Column="1" Margin="0,0,0,117" SelectionChanged="dGrid_SelectionChanged">
+        <DataGrid Name="dGrid" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="0"  Grid.Column="1" Margin="0,0,0,203" SelectionChanged="dGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Оценка" Binding="{Binding Оценка}"
 Width="100"></DataGridTextColumn>
@@ -43,7 +66,17 @@ Width="*"></DataGridTextColumn>
             </Button.ContentTemplate>        </Button>
         <Label Grid.Column="1" Content="Средний балл:" HorizontalAlignment="Left" Margin="46,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="18"/>
         <Label x:Name="LableAverage" Grid.Column="1" HorizontalAlignment="Left" Margin="191,0,0,0" Grid.Row="1" VerticalAlignment="Center" FontSize="16"/>
-        <ComboBox x:Name="cDiscipline" HorizontalAlignment="Left" Margin="54,178,0,0" VerticalAlignment="Top" Width="164" Height="27"/>
-        <Label Content="Предмет" HorizontalAlignment="Left" Margin="54,149,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cDiscipline" HorizontalAlignment="Left" Margin="44,147,0,0" VerticalAlignment="Top" Width="164" Height="27" SelectionChanged="cDiscipline_SelectionChanged"/>
+        <Label Content="Предмет" HorizontalAlignment="Left" Margin="44,118,0,0" VerticalAlignment="Top"/>
+
+        <ListBox x:Name="MessageListBox" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Width="516" Height="150"
+                 ItemTemplateSelector="{StaticResource MessageTemplateSelector}" Grid.Column="1">
+        </ListBox>
+        <TextBox x:Name="MessageBox" Grid.Column="1" Margin="5,267,15,0"
+         VerticalAlignment="Top" AcceptsReturn="True" TextWrapping="Wrap"
+         KeyDown="MessageBox_KeyDown"/>
+        <Button Content="Отправить" Grid.Column="1" Margin="5,290,15,0"
+        VerticalAlignment="Top" Click="SendButton_Click"/>
+
     </Grid>
 </Window>

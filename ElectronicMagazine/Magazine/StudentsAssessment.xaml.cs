@@ -24,7 +24,7 @@ namespace ElectronicMagazine.Magazine
             InitializeComponent();
             student = students;
             dis = discipline;
-            apdute();
+            Update();
 
             ImagePhoto(student);
         }
@@ -48,7 +48,7 @@ namespace ElectronicMagazine.Magazine
             }
 
         }
-        public void apdute()
+        public void Update()
         {
             TitleName.Content = StudentsProf.FirstName;
             TitleSecondName.Content = StudentsProf.SecondName;

@@ -16,6 +16,7 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -31,7 +32,7 @@
         <DatePicker Text="{Binding Дата_рождения, StringFormat='dd/MM/yyyy'}" x:Name="DataPicerBirthday" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center"  Width="154" Height="26"/>
         <ComboBox Text="{Binding Id_Класса}" x:Name="ComboClass" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center"  Width="154" Height="26"/>
         <Button Grid.Column="1" Content="Сохранить" HorizontalAlignment="Center" Height="52"
-Width="60" Grid.Row="4" VerticalAlignment="Bottom"  Click="SaveClick" Margin="0,0,0,-1" Grid.RowSpan="2" BorderBrush="{x:Null}" Background="{x:Null}">
+Width="60" Grid.Row="6" VerticalAlignment="Center"  Click="SaveClick" BorderBrush="{x:Null}" Background="{x:Null}">
             <Button.ContentTemplate >
                 <DataTemplate >
                     <Image  Source="/Magazine/icon/disk.png" Stretch="Fill" />
@@ -50,11 +51,13 @@ Width="60" Grid.Row="4" VerticalAlignment="Bottom"  Click="SaveClick" Margin="0,
         <Button Grid.Column="0"  Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
     Click="btnBack_Click" Height="52"
 Width="60" VerticalAlignment="Center"
-    Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,0,0,0" Grid.Row="5">            <Button.ContentTemplate >
+    Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,0,0,0" Grid.Row="6">            <Button.ContentTemplate >
                 <DataTemplate >
                     <Image  Source="/Magazine/icon/back.png" Stretch="Fill" />
                 </DataTemplate>
             </Button.ContentTemplate>        </Button>
+        <Label Content="Пользователь" HorizontalAlignment="Center"  Grid.Row="5" VerticalAlignment="Top" Margin="0,14,0,0"/>
+        <ComboBox Text="{Binding Id_User}" x:Name="ComboBox_User" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="5" VerticalAlignment="Top"  Width="154" Height="26" Margin="0,14,0,0"/>
 
 
     </Grid>

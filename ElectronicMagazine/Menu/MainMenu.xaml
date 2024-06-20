@@ -11,9 +11,9 @@
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/rozov.jpg"/>
         </Grid.Background>
-        <Button Content="Выбрать" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Height="44" Width="122" Click="Button_Click"/>
-        <Label Content="Группа" HorizontalAlignment="Left" Margin="150,95,0,0" VerticalAlignment="Top" Width="82"/>
-        <ComboBox x:Name="ComboBoxClass" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Width="150" Height="37" SelectionChanged="ComboBoxClass_SelectionChanged"/>
+        <Button Content="Выбрать" HorizontalAlignment="Center" Margin="0,273,0,0" VerticalAlignment="Top" Height="44" Width="122" Click="Button_Click"/>
+        <Label Content="Группа" HorizontalAlignment="Left" Margin="150,182,0,0" VerticalAlignment="Top" Width="82"/>
+        <ComboBox x:Name="ComboBoxClass" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="37" Margin="0,217,0,0"/>
         <Label Content="Вы вошли как: " HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Width="94"/>
         <Label x:Name="LableFirstName" Content="Label" HorizontalAlignment="Left" Margin="136,32,0,0" VerticalAlignment="Top"/>
         <Button Content="Назад" HorizontalAlignment="Left" x:Name="btnBack"
@@ -24,6 +24,9 @@ Width="68" VerticalAlignment="Top"
                     <Image  Source="/Magazine/icon/back.png" Stretch="Fill" />
                 </DataTemplate>
             </Button.ContentTemplate>        </Button>
+        <ComboBox x:Name="ComboBoxDis" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="37" Margin="0,121,0,0"/>
+        <Label Content="Дисциплина" HorizontalAlignment="Left" Margin="150,90,0,0" VerticalAlignment="Top" Width="82"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="351,38,0,0" VerticalAlignment="Top" Click="btnProf_Click"/>
         <!--!-->
     </Grid>
 </Window>
